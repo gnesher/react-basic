@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
-import Header from './components/Header';
-import SideBar from './components/SideBar';
-import MainContent from './components/MainContent';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import MainContent from './components/MainContent';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
+        <Header />
+        <div className="row">
+          <Sidebar />
+          <MainContent />
+        </div>
       </div>
     );
   }
