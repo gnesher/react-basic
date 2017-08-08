@@ -1,6 +1,20 @@
 import React from 'react';
+import MenuItem from './MenuItem';
 
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: 'Gmail'
+    }
+  }
+
+  handleClick(name, e) {
+    e.stopPropagation();
+    this.setState({selected: name});
+  }
+
   render() {
     return (
       <nav className="navbar navbar-default">
@@ -8,7 +22,7 @@ class Header extends React.Component {
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               {this.props.menu.map((item, idx) => {
-                return <li key={idx}><a href="#">{item}</a></li>
+                return <MenuItem selectItem={this.handleClick.bind(this)} selected={this.state.selected} key={idx} name={item} />
               })}
             </ul>
           </div>
