@@ -5,10 +5,19 @@ import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 
 class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menu: ['Gmail', 'Drive', 'Calendar']
+    }
+  }
+
   render() {
     return (
       <div className="container-fluid">
-        <Header />
+        <Header menu={this.state.menu} />
         <div className="row">
           <Sidebar />
           <MainContent />
